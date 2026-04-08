@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shield TX — Shielded perp execution on Hyperliquid</title>
+  <meta name="description" content="Shield TX executes natively on Hyperliquid — same fills, no footprint. Stop leaking 15bps per trade to copy traders." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="anim-a">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-panel">
+      <div class="hero-shader" aria-hidden="true">
+        <div class="blob b1"></div>
+        <div class="blob b2"></div>
+        <div class="blob b3"></div>
+        <div class="blob b4"></div>
+        <div class="blob b5"></div>
+      </div>
+      <header class="nav">
+        <a class="logo" href="#" aria-label="Shield TX">
+          <img class="logo-wordmark" src="Shield TX Logo.svg" alt="Shield TX" />
+        </a>
+        <nav class="nav-links">
+          <a href="#features">Features</a>
+          <a href="#compare">Compare</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#roadmap">Roadmap</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+      </header>
+
+      <div class="stripes" aria-hidden="true"></div>
+      <div class="stripes-fade" aria-hidden="true"></div>
+
+      <div class="hero-body">
+        <div class="hero-content">
+          <div class="hero-eyebrow" data-reveal="1">
+            <span class="he-dot"></span>
+            Private Beta · v0.1
+          </div>
+
+          <h1 class="hero-title" data-reveal="2">
+            Your trades<br />
+            keep getting<br />
+            <em>copied.</em>
+          </h1>
+
+          <div class="hero-sub-wrap" data-reveal="3">
+            <p class="hero-lede">Shield your perp trades on Hyperliquid.</p>
+            <p class="hero-sub">Same fills. Zero footprint.</p>
+          </div>
+
+          <div class="hero-cta" data-reveal="4">
+            <a class="btn-pill primary light" href="#demo">
+              Request Beta Access
+              <span class="btn-arrow">→</span>
+            </a>
+            <a class="btn-ghost" href="#features">See how it works</a>
+          </div>
+
+          <div class="hero-meta" data-reveal="5">
+            <div class="hm-item">
+              <span class="hm-num">100<span class="hm-unit">bps</span></span>
+              <span class="hm-label">Potential leak per trade</span>
+            </div>
+            <div class="hm-divider"></div>
+            <div class="hm-item">
+              <span class="hm-num">2–60<span class="hm-unit">s</span></span>
+              <span class="hm-label">Time to copy your trades</span>
+            </div>
+            <div class="hm-divider"></div>
+            <div class="hm-item">
+              <span class="hm-num">10<span class="hm-unit">bps</span></span>
+              <span class="hm-label">Shield TX round trip</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual" data-reveal="3" aria-hidden="true">
+          <div class="hv-halo"></div>
+          <div class="hv-frame">
+            <div class="hv-chrome">
+              <span class="hv-dot-chrome"></span>
+              <span class="hv-dot-chrome"></span>
+              <span class="hv-dot-chrome"></span>
+            </div>
+            <canvas class="qtcanvas" data-src="Shadow.png"></canvas>
+            <div class="hv-fallback">
+              <span>Loading preview…</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-scroll" data-reveal="6" aria-hidden="true">
+        <span class="hs-label">Scroll</span>
+        <span class="hs-line"><span class="hs-line-fill"></span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="intro reveal">
+    <div class="container">
+      <div class="label">Hello Trader</div>
+      <p class="intro-body">
+        Your entries, sizing, and liquidation levels stay off the radar. Shielded execution that feels exactly like trading on Hyperliquid directly — because it is.
+      </p>
+    </div>
+  </section>
+
+  <!-- DATA QUOTE SECTION -->
+  <section class="quote-section">
+    <div class="px-orb px-orb-1" data-parallax="0.25" aria-hidden="true"></div>
+    <div class="px-orb px-orb-2" data-parallax="0.15" aria-hidden="true"></div>
+    <div class="quote-grid">
+      <div class="quote-text">
+        <p class="quote">
+          Up to <em>100bps</em> per trade.<br/>Lost to copy bots.
+        </p>
+        <p class="quote-attr">
+          — Mirrored in 2–60 seconds
+        </p>
+        <a class="ghost-link" href="#demo">Scan your wallet →</a>
+      </div>
+
+      <div class="quote-visual">
+        <div class="device">
+          <div class="device-notch"></div>
+          <div class="device-screen">
+            <div class="dscreen-top">
+              <span class="mono">EXPOSURE.SCAN</span>
+              <span class="mono dim">0.84s</span>
+            </div>
+            <div class="dscreen-headline">4 wallets<br />copying you.</div>
+            <div class="dscreen-rows">
+              <div class="dscreen-row">
+                <span>Avg lag</span><span class="mono">4.8s</span>
+              </div>
+              <div class="dscreen-row">
+                <span>Window</span><span class="mono">last 30d</span>
+              </div>
+              <div class="dscreen-row hot">
+                <span>Est. leakage</span><span class="mono">~6 bps</span>
+              </div>
+            </div>
+            <div class="dscreen-cta">
+              <span>Shield these positions</span><span>→</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIG STATEMENT -->
+  <section class="statement">
+    <div class="px-grid" data-parallax="0.3" aria-hidden="true"></div>
+    <div class="container">
+      <p class="kicker">Wallet Lookup</p>
+      <h2 class="statement-title decode">
+        See who's copying<br />
+        <span class="indent">your trades.</span>
+      </h2>
+      <p class="statement-body">
+        Correlated wallets. Average lag. Estimated alpha leakage. Enter your wallet — no connection required.
+      </p>
+    </div>
+  </section>
+
+  <!-- PRODUCT SHOWCASE -->
+  <section class="showcase">
+    <div class="showcase-grid">
+      <article class="showcase-card large">
+        <div class="card-head">
+          <span class="badge">Exposure Scanner</span>
+          <span class="badge ghost">Live</span>
+        </div>
+        <h3 class="card-title">Enter your wallet address. See who's copying your trades.</h3>
+        <div class="scanner">
+          <div class="scanner-input">
+            <span class="mono dim">wallet</span>
+            <span class="mono">0x4f3a91e8…c2e1</span>
+            <span class="scan-btn">Scan</span>
+          </div>
+          <div class="scanner-status">
+            <span class="mono dim">▸ querying on-chain data</span>
+            <span class="mono dim">▸ correlating fills</span>
+            <span class="mono accent">▸ 4 followers detected</span>
+          </div>
+          <div class="scanner-table">
+            <div class="strow head">
+              <span>Wallet</span><span>Lag</span><span>Trades</span>
+            </div>
+            <div class="strow">
+              <span class="mono">0x91a2…3f12</span>
+              <span class="mono">2.3s</span>
+              <span class="mono">142</span>
+            </div>
+            <div class="strow">
+              <span class="mono">0x77ed…8b04</span>
+              <span class="mono">4.8s</span>
+              <span class="mono">98</span>
+            </div>
+            <div class="strow">
+              <span class="mono">0x4cd9…a72f</span>
+              <span class="mono">6.1s</span>
+              <span class="mono">61</span>
+            </div>
+            <div class="strow">
+              <span class="mono">0xb812…0ed5</span>
+              <span class="mono">7.4s</span>
+              <span class="mono">47</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="showcase-card">
+        <div class="card-head">
+          <span class="badge">Shielded Position</span>
+        </div>
+        <h3 class="card-title small">Entries, sizing, liquidation — off the public book.</h3>
+        <div class="position">
+          <div class="prow">
+            <span>ETH-PERP</span><span class="mono mask">▮▮▮▮.▮▮</span>
+          </div>
+          <div class="prow">
+            <span>Size</span><span class="mono mask">▮▮▮ ETH</span>
+          </div>
+          <div class="prow">
+            <span>Entry</span><span class="mono mask">▮▮▮▮.▮▮</span>
+          </div>
+          <div class="prow">
+            <span>Liq.</span><span class="mono mask">▮▮▮▮.▮▮</span>
+          </div>
+          <div class="prow status">
+            <span>Status</span><span class="mono ok">SHIELDED</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="showcase-card">
+        <div class="card-head">
+          <span class="badge">ZK Withdrawal</span>
+        </div>
+        <h3 class="card-title small">Provable withdrawals. No admin key. Compliant by design.</h3>
+        <div class="proof">
+          <div class="pline"><span class="mono">verify_proof()</span><span class="ok">✓</span></div>
+          <div class="pline"><span class="mono">link_check()</span><span class="ok">✓</span></div>
+          <div class="pline"><span class="mono">sanctions_screen()</span><span class="ok">✓</span></div>
+          <div class="pline"><span class="mono">withdraw()</span><span class="ok">✓</span></div>
+          <div class="pline pending">
+            <span class="mono dim">audit_export()</span><span class="dim">…</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- TOOLS CALLOUT -->
+  <section class="tools-callout reveal">
+    <div class="container">
+      <div class="tc-head">
+        <span class="label dark">What's watching you</span>
+        <h2 class="section-title">Copying is<br />a full-time job.</h2>
+      </div>
+      <div class="tc-grid">
+        <div class="tc-card">
+          <div class="tc-stat">2–60<span class="tc-unit">s</span></div>
+          <p class="tc-label">Time to copy your trades</p>
+        </div>
+        <div class="tc-card">
+          <div class="tc-stat">12<span class="tc-unit">+</span></div>
+          <p class="tc-label">Copy tools watching Hyperliquid wallets</p>
+        </div>
+        <div class="tc-card">
+          <div class="tc-stat">100<span class="tc-unit">bps</span></div>
+          <p class="tc-label">Potential cost per trade</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES GRID -->
+  <section class="features" id="features">
+    <div class="px-orb px-orb-light" data-parallax="0.18" aria-hidden="true"></div>
+    <div class="container">
+      <div class="features-head">
+        <span class="label dark">Features</span>
+        <h2 class="section-title">Your edge,<br />without the broadcast.</h2>
+        <p class="features-sub">
+          Shielded execution that feels exactly like trading on Hyperliquid directly — because it is.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <article class="fcard reveal">
+          <div class="fhead">
+            <div class="ficon">◇</div>
+            <h3>Execution shielding</h3>
+          </div>
+          <ul>
+            <li>Entries, sizing, and liquidation levels stay off the radar</li>
+            <li>Nothing on-chain links your trades to you</li>
+          </ul>
+          <div class="fvisual fv-shield" aria-hidden="true">
+            <div class="fv-row"><span class="mono dim">SIZE</span><span class="mono mask">▮▮▮▮.▮▮</span></div>
+            <div class="fv-row"><span class="mono dim">ENTRY</span><span class="mono mask">▮▮▮▮.▮▮</span></div>
+            <div class="fv-row"><span class="mono dim">LIQ</span><span class="mono mask">▮▮▮▮.▮▮</span></div>
+            <div class="fv-pulse"></div>
+          </div>
+        </article>
+
+        <article class="fcard reveal">
+          <div class="fhead">
+            <div class="ficon">↗</div>
+            <h3>Hyperliquid fill parity</h3>
+          </div>
+          <ul>
+            <li>Executes at native HL speed</li>
+            <li>Same order book, same liquidity</li>
+          </ul>
+          <div class="fvisual fv-book" aria-hidden="true">
+            <div class="bookbar b-bid" style="width:82%"></div>
+            <div class="bookbar b-bid" style="width:64%"></div>
+            <div class="bookbar b-bid" style="width:48%"></div>
+            <div class="bookbar b-mid"></div>
+            <div class="bookbar b-ask" style="width:55%"></div>
+            <div class="bookbar b-ask" style="width:71%"></div>
+            <div class="bookbar b-ask" style="width:88%"></div>
+          </div>
+        </article>
+
+        <article class="fcard reveal">
+          <div class="fhead">
+            <div class="ficon">⊘</div>
+            <h3>Copy-bot resistant by design</h3>
+          </div>
+          <ul>
+            <li>Break the signal copy bots rely on</li>
+            <li>No mirrored entries, no crowded exits</li>
+          </ul>
+          <div class="fvisual fv-bot" aria-hidden="true">
+            <div class="botdot d1"></div>
+            <div class="botdot d2"></div>
+            <div class="botdot d3"></div>
+            <div class="botblock">BLOCKED</div>
+          </div>
+        </article>
+
+        <article class="fcard reveal">
+          <div class="fhead">
+            <div class="ficon">⬡</div>
+            <h3>No wallet confusion</h3>
+          </div>
+          <ul>
+            <li>No extensions, no seed phrases</li>
+            <li>Sign in with Google, Apple, or email</li>
+          </ul>
+          <div class="fvisual fv-login" aria-hidden="true">
+            <div class="lbtn">G  Continue with Google</div>
+            <div class="lbtn">  Continue with Apple</div>
+            <div class="lbtn">@  Continue with Email</div>
+          </div>
+        </article>
+
+        <article class="fcard reveal">
+          <div class="fhead">
+            <div class="ficon">▲</div>
+            <h3>You control your funds</h3>
+          </div>
+          <ul>
+            <li>Non-custodial vault on Arbitrum</li>
+            <li>Permissionless withdrawals</li>
+          </ul>
+          <div class="fvisual fv-vault" aria-hidden="true">
+            <div class="vchain">USDC</div>
+            <div class="varrow">→</div>
+            <div class="vchain vlocked">◇ note</div>
+            <div class="varrow">→</div>
+            <div class="vchain vlocked">◇ note</div>
+          </div>
+        </article>
+
+        <article class="fcard reveal">
+          <div class="fhead">
+            <div class="ficon">⇄</div>
+            <h3>One account</h3>
+          </div>
+          <ul>
+            <li>The clean replacement for multi-wallet rotation</li>
+            <li>No clustering exposure</li>
+          </ul>
+          <div class="fvisual fv-xfer" aria-hidden="true">
+            <div class="xnode">A</div>
+            <div class="xline"></div>
+            <div class="xnode">B</div>
+            <div class="xline"></div>
+            <div class="xnode">C</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- DASHBOARD PREVIEW (placeholder) -->
+  <section class="dashpreview reveal">
+    <div class="px-orb px-orb-light" data-parallax="0.2" aria-hidden="true"></div>
+    <div class="container">
+      <div class="dashpreview-head">
+        <span class="label dark">Preview</span>
+        <h2 class="section-title">The terminal,<br />without the audience.</h2>
+        <p class="dashpreview-sub">Hyperliquid, minus the broadcast.</p>
+      </div>
+      <div class="dashframe">
+        <div class="dashbar">
+          <span class="ddot"></span><span class="ddot"></span><span class="ddot"></span>
+          <span class="mono dim">app.shieldtx.io / terminal</span>
+          <span class="dpill mono">SHIELDED</span>
+        </div>
+        <div class="dashbody">
+          <aside class="dashside">
+            <div class="dlabel mono">MARKETS</div>
+            <div class="drow active"><span>ETH-PERP</span><span class="mono accent">+1.24%</span></div>
+            <div class="drow"><span>BTC-PERP</span><span class="mono">−0.42%</span></div>
+            <div class="drow"><span>SOL-PERP</span><span class="mono accent">+0.81%</span></div>
+            <div class="drow"><span>HYPE-PERP</span><span class="mono accent">+3.06%</span></div>
+          </aside>
+          <main class="dashmain">
+            <div class="dchart">
+              <div class="dchart-grid"></div>
+              <svg viewBox="0 0 400 160" preserveAspectRatio="none" class="dchart-line">
+                <polyline points="0,120 30,108 60,116 90,90 120,98 150,72 180,86 210,60 240,68 270,42 300,54 330,28 360,40 400,18" />
+              </svg>
+            </div>
+            <div class="dpanels">
+              <div class="dpanel"><span class="mono dim">PNL</span><span class="mono accent">+12.4%</span></div>
+              <div class="dpanel"><span class="mono dim">SIZE</span><span class="mono mask">▮▮▮ ETH</span></div>
+              <div class="dpanel"><span class="mono dim">FOOTPRINT</span><span class="mono ok">NONE</span></div>
+            </div>
+          </main>
+        </div>
+      </div>
+      <p class="dashnote mono dim">// dashboard mock — final UI ships in beta</p>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how" id="how">
+    <div class="px-grid px-grid-light" data-parallax="0.22" aria-hidden="true"></div>
+    <div class="container">
+      <div class="how-head">
+        <h2 class="section-title">Four steps.<br />Zero footprint.</h2>
+      </div>
+
+      <div class="steps">
+        <div class="step step-1 reveal">
+          <div class="step-meta">
+            <span class="step-num">Step 1</span>
+            <h3>Deposit <span class="arrow">↗</span></h3>
+            <p class="step-desc">Your funds are deposited into a vault contract on Arbitrum.</p>
+          </div>
+          <div class="step-visual v1">
+            <div class="vchip mono">Arbitrum vault</div>
+            <div class="vlock">◇</div>
+            <div class="vchip mono dim">→ shielded note</div>
+          </div>
+        </div>
+
+        <div class="step step-2 reveal">
+          <div class="step-meta">
+            <span class="step-num">Step 2</span>
+            <h3>Trade <span class="arrow">↗</span></h3>
+            <p class="step-desc">You place trades from a fresh, unlinkable wallet on Hyperliquid.</p>
+          </div>
+          <div class="step-visual v2">
+            <div class="vbar">
+              <span class="mono">ETH-PERP</span>
+              <span class="mono accent">FILLED · 5,432 ETH</span>
+            </div>
+            <div class="vbar">
+              <span class="mono">BTC-PERP</span>
+              <span class="mono accent">FILLED · 1,820 BTC</span>
+            </div>
+            <div class="vbar shield">
+              <span class="mono dim">PUBLIC BOOK</span>
+              <span class="mono dim">— · — · —</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="step step-3 reveal">
+          <div class="step-meta">
+            <span class="step-num">Step 3</span>
+            <h3>Close <span class="arrow">↗</span></h3>
+            <p class="step-desc">Keep trading or re-shield for maximum unlinkability.</p>
+          </div>
+          <div class="step-visual v3">
+            <div class="vline"><span class="mono">PnL</span><span class="mono accent">+12.4%</span></div>
+            <div class="vline"><span class="mono">Escrow</span><span class="ok">✓ settled</span></div>
+            <div class="vline"><span class="mono">Notes</span><span class="mono">restocked</span></div>
+          </div>
+        </div>
+
+        <div class="step step-4 reveal">
+          <div class="step-meta">
+            <span class="step-num">Step 4</span>
+            <h3>Withdraw <span class="arrow">↗</span></h3>
+            <p class="step-desc">Permissionless and trustless. No admin key required.</p>
+          </div>
+          <div class="step-visual v4">
+            <div class="vline"><span class="mono">ZK proof</span><span class="ok">✓ verified</span></div>
+            <div class="vline"><span class="mono">Merkle root</span><span class="ok">✓ matched</span></div>
+            <div class="vline"><span class="mono">Claim</span><span class="mono">permissionless</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="how-foot">
+        <p>Funds under your control. Trades off public feeds.</p>
+        <a class="btn-pill" href="#demo">Request Beta Access</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE SHIELD YOU FROM -->
+  <section class="shield-from reveal">
+    <div class="px-grid" data-parallax="0.25" aria-hidden="true"></div>
+    <div class="shield-grid">
+      <div class="shield-logos">
+        <div class="lcell">Hyperbot</div>
+        <div class="lcell">Dexly</div>
+        <div class="lcell">SuperX</div>
+        <div class="lcell">HyperDash</div>
+        <div class="lcell">CoinGlass</div>
+        <div class="lcell">Nansen</div>
+        <div class="lcell">Arkham</div>
+        <div class="lcell more">+5 more</div>
+      </div>
+      <div class="shield-text">
+        <h2>
+          We shield you<br />
+          from <em>all of them.</em>
+        </h2>
+        <p>
+          12+ tools mirror wallets within seconds. Rotation doesn't fix it. Shield TX breaks linkability — cleanly.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON -->
+  <section class="compare-section reveal" id="compare">
+    <div class="px-orb px-orb-2" data-parallax="0.18" aria-hidden="true"></div>
+    <div class="container">
+      <div class="compare-head">
+        <span class="label dark">Compare</span>
+        <h2>See how we're different.</h2>
+        <p class="compare-sub">
+          Shielded execution without the tradeoffs.
+        </p>
+      </div>
+      <div class="compare-table compare-table-3">
+        <div class="ctrow chead">
+          <div></div>
+          <div class="us">Shield TX</div>
+          <div>Direct Hyperliquid</div>
+          <div>Multi-wallet rotation</div>
+        </div>
+        <div class="ctrow">
+          <div>Execution shielding</div>
+          <div class="us">✓</div>
+          <div>✗</div>
+          <div>✗</div>
+        </div>
+        <div class="ctrow">
+          <div>Copy-bot resistance</div>
+          <div class="us">✓</div>
+          <div>✗</div>
+          <div>✗</div>
+        </div>
+        <div class="ctrow">
+          <div>No operational overhead</div>
+          <div class="us">✓</div>
+          <div>✓</div>
+          <div>✗</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING STRIP -->
+  <section class="pricing" id="pricing">
+    <div class="px-orb px-orb-light" data-parallax="0.15" aria-hidden="true"></div>
+    <div class="pricing-grid">
+      <div>
+        <span class="label">Pricing</span>
+        <h2>The leak costs more<br />than the fix.</h2>
+      </div>
+      <div class="pricing-detail">
+        <p>
+          Copy traders could take up to 100bps per trade. Shield TX costs 10bps round trip.
+        </p>
+        <div class="price-pills">
+          <div class="ppill"><span class="mono">5bps</span><span>entry</span></div>
+          <div class="ppill"><span class="mono">5bps</span><span>exit</span></div>
+          <div class="ppill highlight"><span class="mono">0bps</span><span>private beta</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPLIANCE -->
+  <section class="compliance reveal">
+    <div class="px-orb px-orb-1" data-parallax="0.22" aria-hidden="true"></div>
+    <div class="container">
+      <div class="compliance-head">
+        <span class="label dark">Compliance</span>
+        <h2 class="section-title">Shielded execution.<br />Not a mixer.</h2>
+        <p class="compliance-sub">
+          Native execution. Full auditability. Zero obfuscation.
+        </p>
+      </div>
+      <div class="compliance-grid">
+        <div class="ccard">
+          <div class="cnum">01</div>
+          <h4>Deposit screening</h4>
+          <p>Every deposit checked against sanctions lists.</p>
+        </div>
+        <div class="ccard">
+          <div class="cnum">02</div>
+          <h4>Geographic blocking</h4>
+          <p>Restricted regions enforced at entry.</p>
+        </div>
+        <div class="ccard">
+          <div class="cnum">03</div>
+          <h4>Optional verification</h4>
+          <p>Unlock higher limits with verification.</p>
+        </div>
+        <div class="ccard">
+          <div class="cnum">04</div>
+          <h4>Viewing keys</h4>
+          <p>For audits &amp; reporting when needed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE / DEMO -->
+  <section class="experience" id="demo">
+    <div class="px-grid" data-parallax="0.28" aria-hidden="true"></div>
+    <div class="container center">
+      <h2 class="experience-title">Stop broadcasting.<br />Start shielding.</h2>
+      <p class="experience-body">
+        Beta access is limited.
+      </p>
+      <form class="demo-form" onsubmit="event.preventDefault();">
+        <input type="email" placeholder="your@email.com" aria-label="Email address" />
+        <button type="submit" class="btn-pill primary">Request Access</button>
+      </form>
+      <p class="demo-note mono">Private Beta · v0.1</p>
+    </div>
+    <div class="experience-strip">
+      <div class="estrip-card c1"><span class="mono">EXPOSURE.SCAN</span></div>
+      <div class="estrip-card c2"><span class="mono">SHIELDED.POSITION</span></div>
+      <div class="estrip-card c3"><span class="mono">ZK.WITHDRAW</span></div>
+      <div class="estrip-card c4"><span class="mono">AUDIT.VIEW</span></div>
+      <div class="estrip-card c5"><span class="mono">VAULT.LOCK</span></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq reveal" id="faq">
+    <div class="px-orb px-orb-light" data-parallax="0.18" aria-hidden="true"></div>
+    <div class="container">
+      <div class="faq-head">
+        <span class="label dark">FAQ</span>
+        <h2 class="section-title">Questions.<br />Answered.</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>Is this like Tornado Cash?</summary>
+          <p>No. Shield TX doesn't pool funds or obfuscate transactions. It executes natively on Hyperliquid — same order book, same counterparties, fully on-chain. Tornado Cash hides the transaction; Shield TX shields your position data. Execution stays transparent. Your strategy doesn't.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Does shielding affect my fills?</summary>
+          <p>No. Execution is native HL — same order book, same liquidity. There is no slippage premium for shielding.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Why not just use multiple wallets?</summary>
+          <p>Because Arkham and Nansen cluster them anyway. Temporal correlation analysis links wallets through on-chain behaviour — same asset, same direction, seconds apart is enough. Shield TX breaks linkability at the source. One account, no clustering exposure.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What does it cost?</summary>
+          <p>5bps on entry, 5bps on exit. Copy traders could take up to 100bps per trade from you — Shield TX costs less than the leak it closes.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Who controls the vault and my funds?</summary>
+          <p>You do. Funds are locked in a smart contract on Arbitrum — core operations are permissionless and verified by zero-knowledge proofs, no admin key required.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is there an API?</summary>
+          <p>API access is on the roadmap post-MVP. If you're running algo strategies, reach out directly — early access conversations are open.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section class="roadmap reveal" id="roadmap">
+    <div class="px-orb px-orb-1" data-parallax="0.2" aria-hidden="true"></div>
+    <div class="px-orb px-orb-2" data-parallax="0.12" aria-hidden="true"></div>
+    <div class="container">
+      <div class="roadmap-head">
+        <span class="label dark">Roadmap</span>
+        <h2 class="section-title">Help shape<br />the roadmap.</h2>
+        <p class="roadmap-sub">
+          You're early. That means what you need gets built first.
+        </p>
+      </div>
+      <ol class="rboard">
+        <li class="rrow" style="--pct: 100%">
+          <span class="rrank">01</span>
+          <div class="rbody">
+            <div class="rline">
+              <h4>Selective disclosure</h4>
+              <span class="rtag">Planned</span>
+            </div>
+            <p>Prove PnL without revealing strategy.</p>
+            <div class="rbar"><span class="rbar-fill"></span></div>
+          </div>
+          <button class="rvote" type="button" aria-label="Upvote">
+            <span class="rv-arrow">▲</span>
+            <span class="rv-num">412</span>
+          </button>
+        </li>
+        <li class="rrow" style="--pct: 70%">
+          <span class="rrank">02</span>
+          <div class="rbody">
+            <div class="rline">
+              <h4>ZK attestation</h4>
+              <span class="rtag">Planned</span>
+            </div>
+            <p>Cryptographic proof of performance.</p>
+            <div class="rbar"><span class="rbar-fill"></span></div>
+          </div>
+          <button class="rvote" type="button" aria-label="Upvote">
+            <span class="rv-arrow">▲</span>
+            <span class="rv-num">287</span>
+          </button>
+        </li>
+        <li class="rrow" style="--pct: 49%">
+          <span class="rrank">03</span>
+          <div class="rbody">
+            <div class="rline">
+              <h4>API access</h4>
+              <span class="rtag">Exploring</span>
+            </div>
+            <p>Programmatic trading + sandbox.</p>
+            <div class="rbar"><span class="rbar-fill"></span></div>
+          </div>
+          <button class="rvote" type="button" aria-label="Upvote">
+            <span class="rv-arrow">▲</span>
+            <span class="rv-num">204</span>
+          </button>
+        </li>
+        <li class="rrow" style="--pct: 38%">
+          <span class="rrank">04</span>
+          <div class="rbody">
+            <div class="rline">
+              <h4>Mobile parity</h4>
+              <span class="rtag">Exploring</span>
+            </div>
+            <p>Shielded execution on mobile.</p>
+            <div class="rbar"><span class="rbar-fill"></span></div>
+          </div>
+          <button class="rvote" type="button" aria-label="Upvote">
+            <span class="rv-arrow">▲</span>
+            <span class="rv-num">158</span>
+          </button>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-mark">
+          <svg width="32" height="38" viewBox="0 0 22 26" fill="none">
+            <path d="M11 1L21 4.5V13C21 18.8 16.8 23.7 11 25C5.2 23.7 1 18.8 1 13V4.5L11 1Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M11 7V19" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M6 13H16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <p class="footer-tag mono">Shielded perp execution on Hyperliquid</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#demo">Book a demo</a>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="#faq">FAQ</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#compare">Compare</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Shield TX. All rights reserved.</span>
+      <span>Powered by Avail · Privacy · Terms</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
