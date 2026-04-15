@@ -723,12 +723,12 @@ body {
   max-width: 560px;
 }
 
-.quote {
+.quote-section .quote {
   font-family: "Geist", sans-serif;
-  font-weight: 500;
-  font-size: clamp(28px, 3.2vw, 48px);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  font-weight: 600;
+  font-size: clamp(48px, 6vw, 96px);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
   color: var(--white);
   margin-bottom: var(--s6);
 }
@@ -1403,8 +1403,13 @@ body {
   border-bottom: 1px solid var(--mist);
 }
 
-.compare-table-3 .ctrow {
+.compare-table-3 .ctrow,
+.compare-table-4 .ctrow {
   grid-template-columns: 1.6fr 1fr 1fr 1fr;
+}
+
+.compare-table-4 .ctrow {
+  grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr;
 }
 
 .ctrow:last-child {
@@ -1945,34 +1950,58 @@ footer {
 }
 
 .ccard {
-  background: var(--white);
-  border: 1px solid var(--mist);
   border-radius: var(--r-lg);
-  padding: var(--s8);
+  padding: var(--s6);
   display: flex;
   flex-direction: column;
   gap: var(--s3);
-  min-height: 200px;
+  min-height: 260px;
+  background: linear-gradient(135deg, #1d4ed8, #60a5fa);
+  color: rgba(255, 255, 255, 0.85);
+  position: relative;
+  overflow: hidden;
 }
+
+.ccard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0,
+    rgba(255, 255, 255, 0) 5px,
+    rgba(255, 255, 255, 0.08) 5px,
+    rgba(255, 255, 255, 0.08) 7px
+  );
+  pointer-events: none;
+}
+
+.ccard:nth-child(1) { background: linear-gradient(135deg, #1d4ed8, #60a5fa); }
+.ccard:nth-child(2) { background: linear-gradient(135deg, #0f172a, #1e40af); }
+.ccard:nth-child(3) { background: linear-gradient(135deg, #1e293b, #475569); }
+.ccard:nth-child(4) { background: linear-gradient(135deg, #2563eb, #93c5fd); }
 
 .cnum {
   font-family: "Geist Mono", monospace;
   font-size: 12px;
-  color: var(--blue-600);
+  color: rgba(255, 255, 255, 0.55);
   letter-spacing: 0.08em;
+  position: relative;
 }
 
 .ccard h4 {
   font-family: "Geist", sans-serif;
   font-weight: 600;
   font-size: 18px;
-  color: var(--ink);
+  color: var(--white);
+  position: relative;
 }
 
 .ccard p {
   font-size: 14px;
-  color: var(--slate);
+  color: rgba(255, 255, 255, 0.7);
   margin-top: auto;
+  position: relative;
 }
 
 /* ============================================
@@ -3084,5 +3113,216 @@ body.anim-e section.reveal.visible {
 @media (prefers-reduced-motion: reduce) {
   .px-orb, .px-grid {
     transform: none !important;
+  }
+}
+
+/* ============================================
+   KEY FEATURES — 3 CARDS
+   ============================================ */
+.key-features {
+  padding: var(--s24) 0;
+  background: var(--snow);
+}
+
+.kf-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s8);
+}
+
+.kf-card {
+  background: var(--white);
+  border: 1px solid var(--mist);
+  border-radius: var(--r-lg);
+  padding: var(--s12) var(--s8);
+  text-align: center;
+  transition: box-shadow 0.3s var(--ease), transform 0.3s var(--ease);
+}
+
+.kf-card:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  transform: translateY(-2px);
+}
+
+.kf-icon {
+  font-size: 28px;
+  color: var(--blue-600);
+  margin-bottom: var(--s4);
+}
+
+.kf-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: var(--s3);
+  color: var(--ink);
+}
+
+.kf-card p {
+  color: var(--graphite);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+/* ============================================
+   THE PROBLEM
+   ============================================ */
+.problem {
+  position: relative;
+  padding: var(--s24) 0;
+  background: var(--charcoal);
+  color: var(--white);
+  overflow: hidden;
+}
+
+.problem-head {
+  text-align: center;
+  margin-bottom: var(--s16);
+}
+
+.problem-head .label.dark {
+  color: rgba(255,255,255,0.55);
+  border-color: rgba(255,255,255,0.18);
+}
+
+.problem-head .section-title {
+  color: var(--white);
+}
+
+.problem-head .indent {
+  padding-left: 2ch;
+}
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s8);
+}
+
+.problem-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--r-lg);
+  padding: var(--s10) var(--s8);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.pc-num {
+  font-family: "Geist Mono", monospace;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--blue-400);
+  margin-bottom: var(--s4);
+  line-height: 1;
+}
+
+.problem-card p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.85);
+}
+
+/* ============================================
+   WHY WORKAROUNDS FAIL
+   ============================================ */
+.workarounds {
+  position: relative;
+  padding: var(--s24) 0;
+  background: var(--ice);
+  overflow: hidden;
+}
+
+.workarounds-head {
+  text-align: center;
+  margin-bottom: var(--s16);
+}
+
+.workarounds-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--s6);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.wa-card {
+  background: var(--white);
+  border: 1px solid var(--mist);
+  border-left: 3px solid var(--blue-600);
+  border-radius: var(--r-md);
+  padding: var(--s6) var(--s8);
+  transition: box-shadow 0.3s var(--ease);
+}
+
+.wa-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+
+.wa-card p {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+/* ============================================
+   WALLET SCANNER (inside quote-section)
+   ============================================ */
+.quote-section .ws-form {
+  display: flex;
+  gap: var(--s3);
+  margin-top: var(--s6);
+}
+
+.quote-section .ws-form input {
+  flex: 1;
+  padding: 14px 18px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: var(--r-md);
+  font-family: "Geist Mono", monospace;
+  font-size: 14px;
+  background: rgba(255,255,255,0.08);
+  color: var(--white);
+  outline: none;
+  transition: border-color 0.2s var(--ease), background 0.2s var(--ease);
+}
+
+.quote-section .ws-form input:focus {
+  border-color: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.12);
+}
+
+.quote-section .ws-form input::placeholder {
+  color: rgba(255,255,255,0.4);
+}
+
+/* ============================================
+   EXPERIENCE TAGLINE
+   ============================================ */
+.experience-tagline {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--blue-600);
+  margin-bottom: var(--s4);
+}
+
+/* ============================================
+   RESPONSIVE — new sections
+   ============================================ */
+@media (max-width: 768px) {
+  .kf-grid {
+    grid-template-columns: 1fr;
+  }
+  .problem-grid {
+    grid-template-columns: 1fr;
+  }
+  .workarounds-grid {
+    grid-template-columns: 1fr;
+  }
+  .quote-section .ws-form {
+    flex-direction: column;
+  }
+  .compare-table-4 .ctrow {
+    grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr;
+    font-size: 13px;
   }
 }
